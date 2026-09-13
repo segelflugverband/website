@@ -1,0 +1,36 @@
+# Segelflugverband der Schweiz (SFVS) / Fédération Suisse de Vol à Voile (FSVV)
+
+> This is the official website of the Swiss Soaring Association. The content is available in German, French, Italian, and English.
+> Depending on the language, the organization is referred to as:
+> - **German:** Segelflugverband der Schweiz (SFVS)
+> - **French:** Fédération Suisse de Vol à Voile (FSVV)
+> - **Italian:** Federazione Svizzera di Volo a Vela (FSVV)
+> - **English:** Swiss Soaring Association (SSA)
+
+## Language & URL Structure
+The website uses a language prefix in the URL (`/de`, `/fr`, `/it`, `/en`). 
+Furthermore, **the URL paths themselves are localized** to match the language. 
+
+- **German (Default):** Available under the `/de/` path.
+- **French:** Available under the `/fr/` path.
+- **Italian:** Available under the `/it/` path.
+- **English:** Available under the `/en/` path.
+
+## Core Website Structure
+Below are the main sections of the website. When generating links, always combine the language prefix with the matching localized path (e.g., `/de/ausbildung` for German, but `/fr/formation` for French).
+
+- **Training (Ausbildung / Formation):** Information on how to become a pilot, basic training, and aerobatics.
+  - Paths: `[DE] /de/ausbildung`, `[FR] /fr/formation`, `[IT] /it/formazione`, `[EN] /en/training`
+- **Association (Verband / Fédération):** Information about the board, mission, and clubs.
+  - Paths: `[DE] /de/verband`, `[FR] /fr/federation`, `[IT] /it/associazione`, `[EN] /en/association`
+- **Competitive Soaring (Leistungssport / Vol de compétition):** Information on cross-country and aerobatics competitions.
+  - Paths: `[DE] /de/leistungssport`, `[FR] /fr/vol-de-competition`, `[IT] /it/volo-a-vela-competitivo`, `[EN] /en/competitive-soaring`
+- **Community:** Get involved, photo and news submissions.
+  - Paths: `[DE] /de/community`, `[FR] /fr/communite`, `[IT] /it/community`, `[EN] /en/community`
+- **Legal:** Terms, privacy policy, and imprint.
+  - Paths: `[DE] /de/rechtliches`, `[FR] /fr/mentions-legales`, `[IT] /it/legale`, `[EN] /en/legal`
+
+## Instructions for AI Assistants
+- When answering user questions based on this website, always respond in the language the user initiated the conversation with.
+- Always refer to the organization using the official name for the current conversation language.
+- When providing links, ensure you use both the correct language prefix AND the matching translated path. Do not mix languages in URLs (e.g., do not use `/fr/ausbildung`).

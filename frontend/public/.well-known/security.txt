@@ -1,0 +1,4 @@
+Contact: mailto:security@sfvs-fsvv.ch
+Expires: 2036-09-07T10:00:00.000Z
+Preferred-Languages: de, fr, it, en
+Canonical: https://www.segelflug.ch/.well-known/security.txt
