@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_sections_carousel_sections",
+  "info": {
+    "displayName": "Carousel Section",
+    "icon": "layer",
+    "description": "A section with a heading, paragraph text, and a scrollable set of cards"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "required": true
+    },
+    "paragraph": {
+      "type": "text"
+    },
+    "textPosition": {
+      "type": "enumeration",
+      "enum": ["left", "right"],
+      "default": "left"
+    },
+    "cards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.card"
+    }
+  }
+}

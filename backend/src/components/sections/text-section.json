@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_sections_text_sections",
+  "info": {
+    "displayName": "Text Section",
+    "icon": "write",
+    "description": "A full-width rich text content block"
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "richtext",
+      "required": true
+    }
+  }
+}

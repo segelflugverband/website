@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_sections_intro_sections",
+  "info": {
+    "displayName": "Intro Section",
+    "icon": "oneToMany",
+    "description": "Hero intro block with accent heading, base heading, paragraph, and a circular image"
+  },
+  "options": {},
+  "attributes": {
+    "headingAccent": {
+      "type": "string",
+      "required": true
+    },
+    "headingBase": {
+      "type": "string",
+      "required": true
+    },
+    "paragraph": {
+      "type": "text",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "imageAlt": {
+      "type": "string"
+    }
+  }
+}

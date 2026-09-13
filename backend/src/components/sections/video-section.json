@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_sections_video_sections",
+  "info": {
+    "displayName": "Video Section",
+    "icon": "play",
+    "description": "Full-width video section — use either an uploaded video file or an external URL (YouTube/Vimeo)"
+  },
+  "options": {},
+  "attributes": {
+    "video": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["videos"]
+    },
+    "videoUrl": {
+      "type": "string"
+    },
+    "posterImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "autoplay": {
+      "type": "boolean",
+      "default": true
+    },
+    "loop": {
+      "type": "boolean",
+      "default": true
+    },
+    "muted": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

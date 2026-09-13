@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_shared_submenu_items",
+  "info": {
+    "displayName": "Submenu Item",
+    "icon": "link",
+    "description": "A single item inside a header nav submenu"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "href": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string"
+    }
+  }
+}

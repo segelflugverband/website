@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_sections_image_sections",
+  "info": {
+    "displayName": "Image Section",
+    "icon": "picture",
+    "description": "Full-width section with a background image on one side and a text/button box on the other"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "buttonText": {
+      "type": "string",
+      "required": true
+    },
+    "buttonHref": {
+      "type": "string",
+      "required": true
+    },
+    "imagePosition": {
+      "type": "enumeration",
+      "enum": ["left", "right"],
+      "default": "left"
+    }
+  }
+}
