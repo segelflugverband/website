@@ -1,8 +1,14 @@
 {
-    "HomePage": {
-        "title": "Welcome",
-        "description": "This is the home page",
-        "MoreInfo": "More info",
-        "OurGoals": "Our goals"
+  "Footer": {
+    "legal": {
+      "copyright": "All rights reserved. © Swiss Gliding Association, ",
+      "terms": "Terms of Use",
+      "privacy": "Privacy Policy",
+      "cookies": "Cookies",
+      "imprint": "Imprint"
     }
+  },
+  "Header": {
+    "language": "Language"
+  }
 }

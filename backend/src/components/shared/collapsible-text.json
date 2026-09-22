@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_shared_collapsible_texts",
+  "info": {
+    "displayName": "Collapsible Text",
+    "icon": "collapse",
+    "description": "An FAQ-style accordion item"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "content": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

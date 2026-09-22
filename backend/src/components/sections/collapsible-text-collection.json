@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_sections_collapsible_text_collections",
+  "info": {
+    "displayName": "Collapsible Text Collection",
+    "icon": "bulletList",
+    "description": "A collection of FAQ-style collapsible text items"
+  },
+  "options": {},
+  "attributes": {
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.collapsible-text"
+    }
+  }
+}

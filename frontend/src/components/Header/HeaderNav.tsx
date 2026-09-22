@@ -28,7 +28,6 @@ interface HeaderNavProps {
 
 export default function HeaderNav({ navItems }: HeaderNavProps) {
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-    const [activeIndex, setActiveIndex] = useState<number | null>(null);
     const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0, opacity: 0 });
 
     const navRef = useRef<HTMLUListElement>(null);
@@ -37,10 +36,9 @@ export default function HeaderNav({ navItems }: HeaderNavProps) {
     const pathname = usePathname();
 
     // Determine active index based on pathname
-    useEffect(() => {
-        const index = navItems.findIndex(item => pathname.startsWith(item.href));
-        setActiveIndex(index !== -1 ? index : null);
-    }, [pathname, navItems]);
+    const activeIndexRaw = navItems.findIndex(item => pathname.startsWith(item.href));
+    const activeIndex = activeIndexRaw !== -1 ? activeIndexRaw : null;
+
 
     const updateIndicator = (index: number | null) => {
         if (index !== null && itemRefs.current[index]) {
@@ -84,7 +82,7 @@ export default function HeaderNav({ navItems }: HeaderNavProps) {
                 className={`fixed inset-0 top-28 bg-black/40 z-30 transition-opacity duration-300 pointer-events-none ${hoveredIndex !== null && navItems[hoveredIndex]?.submenu?.length ? 'opacity-100' : 'opacity-0'}`}
             />
 
-            <nav className="hidden md:flex items-center h-full flex-1">
+            <nav className="hidden md:flex items-center h-full flex-1 relative">
                 <ul ref={navRef} className="flex items-center justify-center gap-10 h-full" onMouseLeave={() => setHoveredIndex(null)}>
                     {mappedItems.map((item, idx) => (
                         <HeaderItem
@@ -95,17 +93,17 @@ export default function HeaderNav({ navItems }: HeaderNavProps) {
                             onMouseEnter={() => setHoveredIndex(idx)}
                         />
                     ))}
-
-                    {/* Sliding Active Border */}
-                    <div
-                        className="absolute bottom-0 h-[3px] bg-accent-primary transition-all duration-300 ease-out z-40"
-                        style={{
-                            left: `${indicatorStyle.left}px`,
-                            width: `${indicatorStyle.width}px`,
-                            opacity: indicatorStyle.opacity
-                        }}
-                    />
                 </ul>
+                
+                {/* Sliding Active Border */}
+                <div
+                    className="absolute bottom-0 h-0.75 bg-accent-primary transition-all duration-300 ease-out z-40"
+                    style={{
+                        left: `${indicatorStyle.left}px`,
+                        width: `${indicatorStyle.width}px`,
+                        opacity: indicatorStyle.opacity
+                    }}
+                />
             </nav>
         </>
     );

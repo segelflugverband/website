@@ -1,6 +1,7 @@
 import { H2 } from "@/components/ui/Headings";
 import { ButtonPrimary } from "@/components/ui/Buttons";
 import Image from "next/image";
+import Container from "@/components/ui/Container";
 
 interface ImageSectionProps {
     image: string;
@@ -15,9 +16,9 @@ export default function ImageSection({ image, title, description, buttonText, bu
     const isLeft = imagePosition === 'left';
 
     return (
-        <section className={`relative w-full min-h-[500px] md:min-h-[600px] flex items-center group overflow-hidden py-12 md:py-0 ${isLeft ? 'justify-end' : 'justify-start'}`}>
+        <Container as="section" padded="desktop-only" className={`relative w-full flex flex-col xl:flex-row items-center xl:min-h-150 group overflow-hidden pb-12 xl:pb-0 ${isLeft ? 'xl:justify-end' : 'xl:justify-start'}`}>
             {/* Image Container */}
-            <div className={`absolute inset-y-0 w-full md:w-[65%] overflow-hidden ${isLeft ? 'left-0' : 'right-0'}`}>
+            <div className={`relative xl:absolute xl:inset-y-0 w-full h-87.5 md:h-112.5 xl:h-auto xl:w-[60%] overflow-hidden ${isLeft ? 'xl:left-24' : 'xl:right-24'}`}>
                 <Image 
                     src={image} 
                     alt={title}
@@ -27,13 +28,13 @@ export default function ImageSection({ image, title, description, buttonText, bu
             </div>
 
             {/* Info Box */}
-            <div className={`relative z-10 w-[90%] md:w-[50%] lg:w-[40%] bg-white p-8 md:p-12 lg:p-16 mx-auto md:mx-0 transition-shadow duration-500 shadow-sm group-hover:shadow-[0_20px_50px_rgba(10,10,130,0.08)] ${isLeft ? 'md:mr-[5%] lg:mr-[10%]' : 'md:ml-[5%] lg:ml-[10%]'}`}>
+            <div className={`relative z-10 w-[90%] md:w-[80%] xl:w-[40%] bg-white p-8 md:p-12 xl:p-16 mx-auto xl:mx-0 -mt-16 md:-mt-24 xl:mt-0 transition-shadow duration-500 shadow-sm group-hover:shadow-[0_20px_50px_rgba(10,10,130,0.08)] ${isLeft ? 'xl:mr-[10%]' : 'xl:ml-[10%]'}`}>
                 <H2 className="mb-6">{title}</H2>
                 <p className="text-text-primary mb-9 text-[16px] leading-relaxed">
                     {description}
                 </p>
                 <ButtonPrimary text={buttonText} href={buttonHref} />
             </div>
-        </section>
+        </Container>
     );
 }

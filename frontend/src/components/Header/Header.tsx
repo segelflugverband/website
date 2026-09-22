@@ -17,14 +17,14 @@ export default function Header({ navItems, logo, siteName = 'SFVS' }: HeaderProp
 
     return (
         <header className="w-full bg-background-primary h-28 flex items-center justify-center">
-            <div className="max-w-[1920px] mx-auto px-24 h-20 flex items-center justify-center w-full relative">
+            <div className="max-w-[1920px] mx-auto px-6 md:px-12 xl:px-24 h-20 flex items-center justify-center w-full relative">
                 <Link href="/" className="flex-1">
                     <Image
                         src={logoSrc}
                         alt={logoAlt}
                         width={0}
                         height={0}
-                        className="w-[225px] h-auto"
+                        className="w-56.25 h-auto"
                     />
                 </Link>
 

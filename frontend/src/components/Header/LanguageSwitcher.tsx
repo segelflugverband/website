@@ -5,8 +5,11 @@ import { useLocale } from 'next-intl';
 import { usePathname, useRouter } from '@/i18n/routing';
 import { ButtonSecondary } from '@/components/ui/Buttons';
 import { IconLanguage, IconX } from '@tabler/icons-react';
+import { useTranslations } from 'next-intl';
 
 export default function LanguageSwitcher() {
+    const t = useTranslations();
+
     const [isOpen, setIsOpen] = useState(false);
     const pathname = usePathname();
     const router = useRouter();
@@ -29,12 +32,13 @@ export default function LanguageSwitcher() {
             <ButtonSecondary 
                 onClick={() => setIsOpen(true)} 
                 icon={<IconLanguage size={20} stroke={1.5} />} 
-                className="w-10 h-10 px-0 flex-shrink-0"
+                className="w-10 h-10 px-0 shrink-0"
+                ariaLabel={t("Header.language")}
             />
 
             {isOpen && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/20 backdrop-blur-[2px]">
-                    <div className="bg-white rounded-3xl shadow-xl w-full max-w-[400px] p-8 relative flex flex-col items-center">
+                    <div className="bg-white rounded-3xl shadow-xl w-full max-w-100 p-8 relative flex flex-col items-center">
                         <button 
                             onClick={() => setIsOpen(false)}
                             className="absolute top-6 right-6 text-gray-400 hover:text-accent-primary transition-colors"

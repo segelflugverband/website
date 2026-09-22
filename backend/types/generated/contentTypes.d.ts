@@ -603,6 +603,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'sections.carousel-section',
         'sections.video-section',
         'sections.text-section',
+        'sections.collapsible-text-collection',
       ]
     > &
       Schema.Attribute.SetPluginOptions<{

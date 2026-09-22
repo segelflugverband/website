@@ -20,15 +20,15 @@ Furthermore, **the URL paths themselves are localized** to match the language.
 Below are the main sections of the website. When generating links, always combine the language prefix with the matching localized path (e.g., `/de/ausbildung` for German, but `/fr/formation` for French).
 
 - **Training (Ausbildung / Formation):** Information on how to become a pilot, basic training, and aerobatics.
-  - Paths: `[DE] /de/ausbildung`, `[FR] /fr/formation`, `[IT] /it/formazione`, `[EN] /en/training`
+  - Paths: [DE](/de/ausbildung), [FR](/fr/formation), [IT](/it/formazione), [EN](/en/training)
 - **Association (Verband / Fédération):** Information about the board, mission, and clubs.
-  - Paths: `[DE] /de/verband`, `[FR] /fr/federation`, `[IT] /it/associazione`, `[EN] /en/association`
+  - Paths: [DE](/de/verband), [FR](/fr/federation), [IT](/it/associazione), [EN](/en/association)
 - **Competitive Soaring (Leistungssport / Vol de compétition):** Information on cross-country and aerobatics competitions.
-  - Paths: `[DE] /de/leistungssport`, `[FR] /fr/vol-de-competition`, `[IT] /it/volo-a-vela-competitivo`, `[EN] /en/competitive-soaring`
+  - Paths: [DE](/de/leistungssport), [FR](/fr/vol-de-competition), [IT](/it/volo-a-vela-competitivo), [EN](/en/competitive-soaring)
 - **Community:** Get involved, photo and news submissions.
-  - Paths: `[DE] /de/community`, `[FR] /fr/communite`, `[IT] /it/community`, `[EN] /en/community`
+  - Paths: [DE](/de/community), [FR](/fr/communite), [IT](/it/community), [EN](/en/community)
 - **Legal:** Terms, privacy policy, and imprint.
-  - Paths: `[DE] /de/rechtliches`, `[FR] /fr/mentions-legales`, `[IT] /it/legale`, `[EN] /en/legal`
+  - Paths: [DE](/de/rechtliches), [FR](/fr/mentions-legales), [IT](/it/legale), [EN](/en/legal)
 
 ## Instructions for AI Assistants
 - When answering user questions based on this website, always respond in the language the user initiated the conversation with.

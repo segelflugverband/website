@@ -52,7 +52,8 @@
         "sections.image-section",
         "sections.carousel-section",
         "sections.video-section",
-        "sections.text-section"
+        "sections.text-section",
+        "sections.collapsible-text-collection"
       ],
       "pluginOptions": {
         "i18n": {

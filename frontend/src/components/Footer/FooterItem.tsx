@@ -6,7 +6,7 @@ export default function FooterItem({ title, href, isExternal = false }: { title:
         <li>
             <Link 
                 href={href} 
-                className="h-8 transition-colors text-text-footer hover:text-accent-primary flex items-center gap-1 w-fit"
+                className="h-8 transition-colors text-text-quaternary hover:text-accent-primary flex items-center gap-1 w-fit"
                 target={isExternal ? "_blank" : undefined}
                 rel={isExternal ? "noopener noreferrer" : undefined}
             >

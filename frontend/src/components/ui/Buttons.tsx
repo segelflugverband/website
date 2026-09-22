@@ -8,9 +8,10 @@ type ButtonProps = {
     className?: string;
     icon?: React.ReactNode;
     isExternal?: boolean;
+    ariaLabel?: string;
 }
 
-export function ButtonPrimary({ text, href, onClick, className = '', icon, isExternal }: ButtonProps) {
+export function ButtonPrimary({ text, href, onClick, className = '', icon, isExternal, ariaLabel }: ButtonProps) {
     const baseStyles = `inline-flex items-center justify-center h-10 bg-accent-primary hover:bg-accent-hover text-text-tertiary py-2 ${text ? 'px-6' : 'w-10'} rounded-full cursor-pointer font-medium transition-colors duration-200 gap-2`;
     
     const content = (
@@ -27,6 +28,7 @@ export function ButtonPrimary({ text, href, onClick, className = '', icon, isExt
                 className={`${baseStyles} ${className}`}
                 target={isExternal ? "_blank" : undefined}
                 rel={isExternal ? "noopener noreferrer" : undefined}
+                aria-label={ariaLabel}
             >
                 {content}
             </Link>
@@ -34,11 +36,11 @@ export function ButtonPrimary({ text, href, onClick, className = '', icon, isExt
     }
 
     return (
-        <button onClick={onClick} className={`${baseStyles} ${className}`}>{content}</button>
+        <button onClick={onClick} className={`${baseStyles} ${className}`} aria-label={ariaLabel}>{content}</button>
     );
 }
 
-export function ButtonSecondary({ text, href, onClick, className = '', icon, isExternal }: ButtonProps) {
+export function ButtonSecondary({ text, href, onClick, className = '', icon, isExternal, ariaLabel }: ButtonProps) {
     const baseStyles = `inline-flex items-center justify-center h-10 bg-background-primary text-accent-primary py-2 ${text ? 'px-6' : 'w-10'} rounded-full cursor-pointer font-medium shadow-button-secondary transition-shadow duration-300 hover:shadow-button-hover gap-2`;
     
     const content = (
@@ -55,6 +57,7 @@ export function ButtonSecondary({ text, href, onClick, className = '', icon, isE
                 className={`${baseStyles} ${className}`}
                 target={isExternal ? "_blank" : undefined}
                 rel={isExternal ? "noopener noreferrer" : undefined}
+                aria-label={ariaLabel}
             >
                 {content}
             </Link>
@@ -62,6 +65,6 @@ export function ButtonSecondary({ text, href, onClick, className = '', icon, isE
     }
 
     return (
-        <button onClick={onClick} className={`${baseStyles} ${className}`}>{content}</button>
+        <button onClick={onClick} className={`${baseStyles} ${className}`} aria-label={ariaLabel}>{content}</button>
     );
 }

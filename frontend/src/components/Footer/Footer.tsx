@@ -1,4 +1,3 @@
-import { Link } from '@/i18n/routing';
 import Image from 'next/image';
 import FooterItem from './FooterItem';
 import FooterNav from './FooterNav';
@@ -7,11 +6,10 @@ import {
     IconBrandInstagram,
     IconBrandYoutube,
     IconBrandTeams,
-    IconBrandFacebook,
-    IconBrandLinkedin,
-    IconBrandTwitter,
+    IconBrandGithub
 } from '@tabler/icons-react';
 import type { FooterColumn, SocialLink } from '@/types/strapi';
+import { useTranslations } from 'next-intl';
 
 interface FooterProps {
     columns: FooterColumn[];
@@ -22,10 +20,8 @@ interface FooterProps {
 const socialIconMap: Record<string, React.ReactNode> = {
     instagram: <IconBrandInstagram size={20} stroke={1.5} />,
     youtube: <IconBrandYoutube size={20} stroke={1.5} />,
-    facebook: <IconBrandFacebook size={20} stroke={1.5} />,
-    linkedin: <IconBrandLinkedin size={20} stroke={1.5} />,
-    twitter: <IconBrandTwitter size={20} stroke={1.5} />,
-    other: <IconBrandTeams size={20} stroke={1.5} />,
+    github: <IconBrandGithub size={20} stroke={1.5} />,
+    teams: <IconBrandTeams size={20} stroke={1.5} />,
 };
 
 export default function Footer({
@@ -33,6 +29,7 @@ export default function Footer({
     copyright,
     socialLinks = [],
 }: FooterProps) {
+    const t = useTranslations();
     const currentYear = new Date().getFullYear();
 
     // If Strapi returns no social links, fall back to hard-coded club links
@@ -42,28 +39,30 @@ export default function Footer({
             : [
                   { id: 1, platform: 'instagram', url: 'https://instagram.com/sfvs_fsvv' },
                   { id: 2, platform: 'youtube', url: 'https://www.youtube.com/channel/UCF11rzaC0kkThJ74H3RUE-g' },
-                  { id: 3, platform: 'other', url: 'https://sfvs.sharepoint.com/sites/SFVS-FSVVIntranet' },
+                  { id: 3, platform: 'github', url: 'https://github.com/segelflugverband' },
+                  { id: 4, platform: 'teams', url: 'https://sfvs.sharepoint.com/sites/SFVS-FSVVIntranet' },
               ];
 
     return (
         <footer>
             <div className="w-full bg-background-primary border-t border-border-primary flex justify-center items-center py-16">
-                <section className="max-w-[1920px] px-24 mx-auto flex justify-center items-stretch w-full">
+                <section className="max-w-[1920px] px-6 md:px-12 xl:px-24 mx-auto flex flex-col xl:flex-row justify-center items-stretch w-full">
                     <FooterNav columns={columns} />
-                    <div className="flex-1 flex flex-col justify-between">
+                    <div className="flex-1 flex flex-col justify-between mt-24 xl:mt-0">
                         {/* Social links */}
-                        <div className="flex justify-end gap-4 mb-12">
+                        <div className="flex flex-wrap justify-start xl:justify-end gap-4 mb-12">
                             {resolvedSocialLinks.map((sl) => (
                                 <ButtonSecondary
                                     key={sl.id}
-                                    icon={socialIconMap[sl.platform] ?? socialIconMap.other}
+                                    icon={socialIconMap[sl.platform] ?? socialIconMap.teams}
                                     href={sl.url}
                                     isExternal
+                                    ariaLabel={`${sl.platform}`}
                                 />
                             ))}
                         </div>
                         {/* Partner logos (static — not managed via Strapi for now) */}
-                        <div className="flex justify-end gap-4">
+                        <div className="flex flex-wrap justify-start xl:justify-end gap-4">
                             <Image src="/partners/swiss-olympic.svg" alt="Swiss Olympic" width={100} height={100} className="w-auto h-18.75" />
                             <Image src="/partners/aecs.webp" alt="AeCS" width={100} height={100} className="w-auto h-18.75" />
                             <Image src="/partners/fai.webp" alt="FAI" width={100} height={100} className="w-auto h-18.75" />
@@ -73,21 +72,24 @@ export default function Footer({
                     </div>
                 </section>
             </div>
-            <div className="w-full bg-background-secondary border-t border-border-primary flex justify-center items-center h-28">
-                <section className="max-w-[1920px] px-24 mx-auto flex justify-between items-center w-full">
-                    <ul className="flex-1 flex gap-3 items-center">
-                        <Image src="/logo/logo-grey.svg" alt="Logo" width={0} height={0} className="w-[150px] h-auto" />
-                        <FooterItem title="Nutzungsbedingungen" href="/legal/terms" />
-                        <span className="text-text-footer">|</span>
-                        <FooterItem title="Datenschutzerklärung" href="/legal/privacy" />
-                        <span className="text-text-footer">|</span>
-                        <FooterItem title="Cookies" href="/legal/cookies" />
-                        <span className="text-text-footer">|</span>
-                        <FooterItem title="Impressum" href="/legal/imprint" />
+            <div className="w-full bg-background-secondary border-t border-border-primary flex justify-center items-center h-fit xl:h-28 py-16 xl:py-0">
+                <section className="max-w-[1920px] px-6 md:px-12 xl:px-24 mx-auto flex flex-col xl:flex-row justify-between items-start xl:items-center w-full gap-3 xl:gap-0">
+                    <Image src="/logo/logo-grey.svg" alt="Logo" width={0} height={0} className="w-37.5 h-auto block xl:hidden mb-1.5" />
+                    <ul className="flex-1 flex flex-wrap gap-3 items-center">
+                        <li className="hidden xl:block">
+                            <Image src="/logo/logo-grey.svg" alt="Logo" width={0} height={0} className="w-37.5 h-auto" />
+                        </li>
+                        <FooterItem title={t('Footer.legal.terms')} href="/legal/terms" />
+                        <li aria-hidden="true"><span className="text-text-quaternary">|</span></li>
+                        <FooterItem title={t('Footer.legal.privacy')} href="/legal/privacy" />
+                        <li aria-hidden="true"><span className="text-text-quaternary">|</span></li>
+                        <FooterItem title={t('Footer.legal.cookies')} href="/legal/cookies" />
+                        <li aria-hidden="true"><span className="text-text-quaternary">|</span></li>
+                        <FooterItem title={t('Footer.legal.imprint')} href="/legal/imprint" />
                     </ul>
                     <div className="flex-1 flex justify-end">
-                        <span className="text-text-footer">
-                            {copyright ?? `Alle Rechte vorbehalten. © Segelflugverband der Schweiz, `}
+                        <span className="text-text-quaternary">
+                            {copyright ?? t('Footer.legal.copyright')}
                             {currentYear}
                         </span>
                     </div>

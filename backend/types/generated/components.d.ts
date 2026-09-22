@@ -16,6 +16,19 @@ export interface SectionsCarouselSection extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionsCollapsibleTextCollection
+  extends Struct.ComponentSchema {
+  collectionName: 'components_sections_collapsible_text_collections';
+  info: {
+    description: 'A collection of FAQ-style collapsible text items';
+    displayName: 'Collapsible Text Collection';
+    icon: 'bulletList';
+  };
+  attributes: {
+    items: Schema.Attribute.Component<'shared.collapsible-text', true>;
+  };
+}
+
 export interface SectionsImageSection extends Struct.ComponentSchema {
   collectionName: 'components_sections_image_sections';
   info: {
@@ -58,7 +71,8 @@ export interface SectionsTextSection extends Struct.ComponentSchema {
     icon: 'write';
   };
   attributes: {
-    content: Schema.Attribute.RichText & Schema.Attribute.Required;
+    content: Schema.Attribute.Text & Schema.Attribute.Required;
+    heading: Schema.Attribute.String;
   };
 }
 
@@ -90,6 +104,19 @@ export interface SharedCard extends Struct.ComponentSchema {
     description: Schema.Attribute.Text;
     href: Schema.Attribute.String;
     image: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SharedCollapsibleText extends Struct.ComponentSchema {
+  collectionName: 'components_shared_collapsible_texts';
+  info: {
+    description: 'An FAQ-style accordion item';
+    displayName: 'Collapsible Text';
+    icon: 'collapse';
+  };
+  attributes: {
+    content: Schema.Attribute.Text & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
@@ -185,11 +212,13 @@ declare module '@strapi/strapi' {
   export namespace Public {
     export interface ComponentSchemas {
       'sections.carousel-section': SectionsCarouselSection;
+      'sections.collapsible-text-collection': SectionsCollapsibleTextCollection;
       'sections.image-section': SectionsImageSection;
       'sections.intro-section': SectionsIntroSection;
       'sections.text-section': SectionsTextSection;
       'sections.video-section': SectionsVideoSection;
       'shared.card': SharedCard;
+      'shared.collapsible-text': SharedCollapsibleText;
       'shared.footer-column': SharedFooterColumn;
       'shared.footer-link': SharedFooterLink;
       'shared.nav-item': SharedNavItem;

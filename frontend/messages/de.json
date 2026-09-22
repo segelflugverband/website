@@ -1,123 +1,14 @@
 {
-  "HomePage": {
-    "hero": {
-      "titleAssociation": "Segelflugverband",
-      "titleSwitzerland": "der Schweiz",
-      "paragraph": "Willkommen beim Segelflugverband der Schweiz! Als Spartenverband des Aeroclubs der Schweiz bündeln wir alle Segelflugaktivitäten des Landes."
-    },
-    "becomePilot": {
-      "heading": "Werde PilotIn",
-      "paragraph": "Frei wie ein Vogel über der Landschaft schweben – ein uralter Menschheitstraum. Du kannst ihn dir erfüllen: Werde jetzt SegelflugpilotIn! Nur im Segelflugzeug erlebst du die unverfälschte Faszination des Fliegens ganz ohne Motorkraft und legst dabei trotzdem spielend Strecken von mehreren hundert Kilometern zurück.",
-      "button": "Mehr erfahren"
-    },
-    "findClub": {
-      "heading": "Fluggruppe finden",
-      "paragraph": "Der beste Einstieg ins Cockpit führt über eine starke Gemeinschaft: Finde die passende Fluggruppe in deiner Region! Gemeinsam im Verein lernst du das Fliegen von Grund auf, teilst die Begeisterung mit Gleichgesinnten und hebst dank erfahrener Fluglehrer sowie einer geteilten Flotte sicher und kostengünstig ab.",
-      "button": "Mehr erfahren"
-    },
-    "competitionSoaring": {
-      "heading": "Leistungssport",
-      "paragraph": "Vom präzisen Kunstflug über weite Streckenflüge bis hin zu spannenden Nachwuchswettbewerben: Im Leistungssport wachsen Pilotinnen und Piloten über sich hinaus. Unsere Teams messen sich auf nationaler wie internationaler Ebene, fördern junge Talente gezielt im Wettkampf und beweisen, welche Höchstleistungen im Segelflug möglich sind.",
-      "button": "Mehr erfahren"
-    }
-  },
   "Footer": {
-    "association": {
-      "association": "Verband",
-      "board": "Vorstand",
-      "mission": "Mission",
-      "events": "Events",
-      "clubs": "Fluggruppen",
-      "aeroclub": "AeCS"
-    },
-    "training": {
-      "training": "Ausbildung",
-      "basic": "Grundausbildung",
-      "aerobatics": "Kunstflugweiterbildung",
-      "tmg": "TMG-Weiterbildung",
-      "instructor": "FluglehrerInnen-Ausbildung",
-      "xc": "Streckenflug-BFK"
-    },
-    "competition-soaring": {
-      "competition-soaring": "Leistungssport",
-      "xc": "Streckenflug",
-      "aerobatics": "Kunstflug",
-      "youth": "Nachwuchs"
-    },
-    "partners": {
-      "partners": "Partner",
-      "swiss-olympic": "Swiss Olympic",
-      "fai": "FAI",
-      "egu": "EGU",
-      "europe-airsports": "Europe Airsports"
-    },
     "legal": {
       "copyright": "Alle Rechte vorbehalten. © Segelflugverband der Schweiz, ",
       "terms": "Nutzungsbedingungen",
       "privacy": "Datenschutzerklärung",
       "cookies": "Cookies",
       "imprint": "Impressum"
-    },
-    "community": {
-      "community": "Community",
-      "getInvolved": "Get involved",
-      "photoSubmission": "Foto-Einsendung",
-      "newsSubmission": "Newsletter-Beitrag",
-      "socialMedia": "Social Media"
-    },
-    "press": {
-      "press": "Presse",
-      "pressKit": "Press Kit"
     }
   },
-  "TrainingPage": {
-    "hero": {
-      "titleWayToCockpit": "Dein Weg ins Cockpit -",
-      "titleTraining": "Ausbildung",
-      "paragraph": "Vom ersten Schnupperflug bis zur Kunstflugberechtigung - Finde Deinen Weg ins Cockpit."
-    },
-    "basic": {
-      "heading": "Grundausbildung",
-      "paragraph": "Von den ersten Platzrunden bis zum Alleinflug: In der Grundausbildung erlernst du Theorie und Praxis von Grund auf. Begleitet von erfahrenen Fluglehrern in einer Fluggruppe deiner Wahl wächst du Schritt für Schritt ins Cockpit hinein – und verwandelst deine Faszination fürs Fliegen schon bald in die eigene Segelfluglizenz.",
-      "button": "Mehr erfahren"
-    },
-    "aerobatics": {
-      "heading": "Kunstflugweiterbildung",
-      "paragraph": "Die Welt steht kopf - Nach deiner Grundausbildung eröffnet dir die Kunstflugberechtigung eine völlig neue Dimension im Himmel. Du meisterst faszinierende Figuren wie Loopings, Rollen und Turns, schärfst dein Feingefühl für das Flugzeug und gewinnst ein Höchstmass an Präzision am Steuer.",
-      "button": "Mehr erfahren"
-    },
-    "tmg": {
-      "heading": "TMG-Weiterbildung",
-      "paragraph": "Das Beste aus zwei Welten verbinden: Die Erweiterung auf Reisemotorsegler (TMG) baut nahtlos auf deiner Segelfluglizenz auf und schlägt die perfekte Brücke zum Motorflug. So gewinnst du zusätzliche Flexibilität für thermikunabhängige Reisen, planbare Ausflüge und neue fliegerische Horizonte.",
-      "button": "Mehr erfahren"
-    },
-    "instructor": {
-      "heading": "FluglehrerInnen-Ausbildung",
-      "paragraph": "Deine Begeisterung weitertragen und die nächste Generation prägen: Erfahrene Pilotinnen und Piloten können ihr tiefes Wissen und ihre fliegerische Praxis in der Fluglehrerausbildung vertiefen. Als Instruktor begleitest du Flugschüler auf ihrem Weg ins Cockpit und leistest einen unverzichtbaren Beitrag für deine Gemeinschaft.",
-      "button": "Mehr erfahren"
-    },
-    "xc": {
-      "heading": "Streckenflug-BFK",
-      "paragraph": "Die Lizenz in der Hand – und jetzt hinaus ins Abenteuer: Der Streckenflug-Breitenförderkurs (BFK) richtet sich gezielt an frischgebackene Brevet-Inhaber. Mit Coaching durch erfahrene Streckenflieger lernst du, Aufwinde optimal zu nutzen, taktisch klug zu navigieren und von Beginn an souverän über weite Distanzen zu fliegen.",
-      "button": "Mehr erfahren"
-    }
-  },
-  "TrainingBasicPage": {
-    "hero": {
-      "titleBecomePilot": "Werde PilotIn -",
-      "titleTraining": "Grundausbildung",
-      "paragraph": "From zero to hero - Vom ersten Alleinflug zum brevetierten Segelflieger."
-    },
-    "introduction": {
-      "paragraph": "Die Grundausbildung im Segelflug steht allen offen, die den Traum vom lautlosen Fliegen verwirklichen möchten. Fast jede Schweizer Segelfluggruppe bietet diesen Einstieg an: Erfahrene Fluglehrerinnen und Fluglehrer begleiten dich fundiert durch Theorie und Praxis. Auf dem Weg zur eigenen Lizenz legst du beim Bundesamt für Zivilluftfahrt (BAZL) die theoretischen Prüfungen sowie den abschliessenden Prüfungsflug ab – dank der strukturierten Ausbildung in deiner Gruppe meisterst du diesen Schritt souverän."
-    },
-    "findClub": {
-      "heading": "Fluggruppe finden",
-      "paragraph": "Rund 40 Fluggruppen gehören dem Segelflugverband der Schweiz an – bestimmt auch eine direkt in deiner Region. Finde deine passende Gruppe, nimm unkompliziert Kontakt auf und hebe bei einem ersten Schnupperflug ab, um die Faszination hautnah zu erleben. Stimmt die Chemie am Boden wie in der Luft, steht dem Weg ins eigene Cockpit nichts mehr im Weg.",
-      "button": "Zur Karte"
-    },
-    "introductoryFlight": {
-      "paragraph": "Ein Schnupperflug ist die perfekte Gelegenheit, um die Faszination des Segelfliegens hautnah zu erleben, bevor du dich für eine Ausbildung entscheidest. Fast jede Segelfluggruppe bietet diese Möglichkeit an – die Kontaktaufnahme ist unkompliziert. Gemeinsam mit einer Fluglehrerin oder einem Fluglehrer hebst du zu einem typischen Schulungsflug ab und spürst zum ersten Mal selbst, wie sich das lautlose Gleiten am Steuer anfühlt. Am Boden lernst du das Vereinsleben und die Mitglieder kennen. Wenn die Chemie stimmt, besprichst du die nächsten Schritte für deine Pilotenausbildung direkt vor Ort."
-    }
+  "Header": {
+    "language": "Sprache"
   }
 }

@@ -3,6 +3,7 @@ import ImageSection from '@/components/ImageSection/ImageSection';
 import CarouselSection from '@/components/CarouselSection/CarouselSection';
 import VideoSection from '@/components/VideoSection/VideoSection';
 import TextSection from '@/components/TextSection/TextSection';
+import CollapsibleTextCollection from '@/components/CollapsibleText/CollapsibleTextCollection';
 import { getStrapiMediaUrl } from '@/lib/strapi';
 import type { PageBlock, CarouselSectionBlock } from '@/types/strapi';
 
@@ -13,12 +14,12 @@ interface BlockRendererProps {
 export default function BlockRenderer({ blocks }: BlockRendererProps) {
     return (
         <>
-            {blocks.map((block) => {
+            {blocks.map((block, index) => {
                 switch (block.__component) {
                     case 'sections.intro-section':
                         return (
                             <IntroSection
-                                key={block.id}
+                                key={`${block.__component}-${block.id}-${index}`}
                                 headingAccent={block.headingAccent}
                                 headingBase={block.headingBase}
                                 paragraph={block.paragraph}
@@ -30,7 +31,7 @@ export default function BlockRenderer({ blocks }: BlockRendererProps) {
                     case 'sections.image-section':
                         return (
                             <ImageSection
-                                key={block.id}
+                                key={`${block.__component}-${block.id}-${index}`}
                                 image={getStrapiMediaUrl(block.image.url)}
                                 title={block.title}
                                 description={block.description}
@@ -44,7 +45,7 @@ export default function BlockRenderer({ blocks }: BlockRendererProps) {
                         const carouselBlock = block as CarouselSectionBlock;
                         return (
                             <CarouselSection
-                                key={carouselBlock.id}
+                                key={`${block.__component}-${carouselBlock.id}-${index}`}
                                 heading={carouselBlock.heading}
                                 paragraph={carouselBlock.paragraph ?? ''}
                                 textPosition={carouselBlock.textPosition}
@@ -64,7 +65,7 @@ export default function BlockRenderer({ blocks }: BlockRendererProps) {
                         if (block.videoUrl) videos.push(block.videoUrl);
                         return (
                             <VideoSection
-                                key={block.id}
+                                key={`${block.__component}-${block.id}-${index}`}
                                 videos={videos}
                                 posterUrl={getStrapiMediaUrl(block.posterImage?.url)}
                                 autoplay={block.autoplay}
@@ -77,15 +78,25 @@ export default function BlockRenderer({ blocks }: BlockRendererProps) {
                     case 'sections.text-section':
                         return (
                             <TextSection
-                                key={block.id}
+                                key={`${block.__component}-${block.id}-${index}`}
+                                heading={block.heading}
                                 content={block.content}
+                            />
+                        );
+
+                    case 'sections.collapsible-text-collection':
+                        return (
+                            <CollapsibleTextCollection
+                                key={`${block.__component}-${block.id}-${index}`}
+                                items={block.items}
+                                removeTopMargin={index > 0 && blocks[index - 1].__component === 'sections.text-section'}
                             />
                         );
 
                     default:
                         // Unknown block type — fail gracefully in production
                         if (process.env.NODE_ENV === 'development') {
-                            console.warn('Unknown block component:', (block as any).__component);
+                            console.warn('Unknown block component:', (block as PageBlock).__component);
                         }
                         return null;
                 }

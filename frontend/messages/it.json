@@ -1,8 +1,14 @@
 {
-    "HomePage": {
-        "title": "Benvenuto",
-        "description": "Questa è la pagina iniziale",
-        "MoreInfo": "Più informazioni",
-        "OurGoals": "I nostri obiettivi"
+  "Footer": {
+    "legal": {
+      "copyright": "Tutti i diritti riservati. © Federazione Svizzera di Volo a Vela, ",
+      "terms": "Condizioni d'uso",
+      "privacy": "Informativa sulla privacy",
+      "cookies": "Cookie",
+      "imprint": "Note legali"
     }
+  },
+  "Header": {
+    "language": "Lingua"
+  }
 }

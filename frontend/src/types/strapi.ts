@@ -48,7 +48,7 @@ export interface FooterColumn {
 
 export interface SocialLink {
   id: number;
-  platform: 'facebook' | 'instagram' | 'twitter' | 'youtube' | 'linkedin' | 'other';
+  platform: 'facebook' | 'instagram' | 'twitter' | 'youtube' | 'linkedin' | 'other' | 'github' | 'teams';
   url: string;
 }
 
@@ -113,7 +113,20 @@ export interface VideoSectionBlock {
 export interface TextSectionBlock {
   __component: 'sections.text-section';
   id: number;
+  heading?: string;
   content: string;
+}
+
+export interface CollapsibleTextItem {
+  id: number;
+  title: string;
+  content: string;
+}
+
+export interface CollapsibleTextCollectionBlock {
+  __component: 'sections.collapsible-text-collection';
+  id: number;
+  items: CollapsibleTextItem[];
 }
 
 export type PageBlock =
@@ -121,7 +134,8 @@ export type PageBlock =
   | ImageSectionBlock
   | CarouselSectionBlock
   | VideoSectionBlock
-  | TextSectionBlock;
+  | TextSectionBlock
+  | CollapsibleTextCollectionBlock;
 
 // ── Content types ─────────────────────────────────────────────
 
