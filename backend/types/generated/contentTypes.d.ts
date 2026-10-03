@@ -443,6 +443,70 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiClubClub extends Struct.CollectionTypeSchema {
+  collectionName: 'clubs';
+  info: {
+    description: 'Gliding clubs across Switzerland with location data';
+    displayName: 'Club';
+    pluralName: 'clubs';
+    singularName: 'club';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    address: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    latitude: Schema.Attribute.Float &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::club.club'>;
+    logo: Schema.Attribute.Media<'images'>;
+    longitude: Schema.Attribute.Float &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    website: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+  };
+}
+
 export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   collectionName: 'globals';
   info: {
@@ -604,6 +668,8 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'sections.video-section',
         'sections.text-section',
         'sections.collapsible-text-collection',
+        'sections.clubs-map-section',
+        'sections.location-map-section',
       ]
     > &
       Schema.Attribute.SetPluginOptions<{
@@ -623,8 +689,9 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
-    slug: Schema.Attribute.UID<'title'> &
+    slug: Schema.Attribute.String &
       Schema.Attribute.Required &
+      Schema.Attribute.Unique &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1154,6 +1221,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::club.club': ApiClubClub;
       'api::global.global': ApiGlobalGlobal;
       'api::news-article.news-article': ApiNewsArticleNewsArticle;
       'api::page.page': ApiPagePage;

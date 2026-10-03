@@ -2,6 +2,7 @@ import type {
   GlobalData,
   PageData,
   NewsArticle,
+  Club,
   StrapiSingleResponse,
   StrapiListResponse,
 } from '@/types/strapi';
@@ -189,4 +190,21 @@ export async function getNewsArticle(
   } catch {
     return null;
   }
+}
+
+// ─────────────────────────────────────────────────────────────
+// Clubs
+// ─────────────────────────────────────────────────────────────
+
+export async function getClubs(locale: string): Promise<Club[]> {
+  const data = await fetchStrapi<StrapiListResponse<Club>>(
+    '/clubs',
+    {
+      locale,
+      'populate[logo]': 'true',
+      'sort[0]': 'name:asc',
+      'pagination[pageSize]': '100',
+    }
+  );
+  return data.data;
 }

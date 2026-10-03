@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_sections_clubs_map_sections",
+  "info": {
+    "displayName": "Clubs Map Section",
+    "icon": "pinMap",
+    "description": "Interactive map showing all gliding clubs across Switzerland with a sidebar list"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    }
+  }
+}

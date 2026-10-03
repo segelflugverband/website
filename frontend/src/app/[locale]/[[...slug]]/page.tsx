@@ -78,7 +78,7 @@ export default async function CmsPage({
 
     return (
         <PageContainer>
-            <BlockRenderer blocks={page.blocks} />
+            <BlockRenderer blocks={page.blocks} locale={locale} />
         </PageContainer>
     );
 }

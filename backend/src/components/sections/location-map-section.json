@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_sections_location_map_sections",
+  "info": {
+    "displayName": "Location Map Section",
+    "icon": "pinMap",
+    "description": "Map with a single marker for event or venue locations"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "address": {
+      "type": "text",
+      "required": true
+    },
+    "latitude": {
+      "type": "float",
+      "required": true
+    },
+    "longitude": {
+      "type": "float",
+      "required": true
+    },
+    "zoom": {
+      "type": "integer",
+      "default": 14,
+      "min": 1,
+      "max": 18
+    }
+  }
+}

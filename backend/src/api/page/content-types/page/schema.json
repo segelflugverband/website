@@ -26,9 +26,10 @@
       }
     },
     "slug": {
-      "type": "uid",
-      "targetField": "title",
+      "type": "string",
       "required": true,
+      "unique": true,
+      "regex": "^[a-z0-9]+(?:[/_-][a-z0-9]+)*$",
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -53,7 +54,9 @@
         "sections.carousel-section",
         "sections.video-section",
         "sections.text-section",
-        "sections.collapsible-text-collection"
+        "sections.collapsible-text-collection",
+        "sections.clubs-map-section",
+        "sections.location-map-section"
       ],
       "pluginOptions": {
         "i18n": {

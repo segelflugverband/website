@@ -129,13 +129,32 @@ export interface CollapsibleTextCollectionBlock {
   items: CollapsibleTextItem[];
 }
 
+export interface ClubsMapSectionBlock {
+  __component: 'sections.clubs-map-section';
+  id: number;
+  heading?: string;
+}
+
+export interface LocationMapSectionBlock {
+  __component: 'sections.location-map-section';
+  id: number;
+  heading?: string;
+  label: string;
+  address: string;
+  latitude: number;
+  longitude: number;
+  zoom?: number;
+}
+
 export type PageBlock =
   | IntroSectionBlock
   | ImageSectionBlock
   | CarouselSectionBlock
   | VideoSectionBlock
   | TextSectionBlock
-  | CollapsibleTextCollectionBlock;
+  | CollapsibleTextCollectionBlock
+  | ClubsMapSectionBlock
+  | LocationMapSectionBlock;
 
 // ── Content types ─────────────────────────────────────────────
 
@@ -159,6 +178,17 @@ export interface PageData {
   locale: string;
   seo: SEO | null;
   blocks: PageBlock[];
+}
+
+export interface Club {
+  id: number;
+  documentId: string;
+  name: string;
+  logo: StrapiMedia | null;
+  website?: string;
+  address: string;
+  latitude: number;
+  longitude: number;
 }
 
 export interface NewsArticle {

@@ -4,14 +4,21 @@ import CarouselSection from '@/components/CarouselSection/CarouselSection';
 import VideoSection from '@/components/VideoSection/VideoSection';
 import TextSection from '@/components/TextSection/TextSection';
 import CollapsibleTextCollection from '@/components/CollapsibleText/CollapsibleTextCollection';
-import { getStrapiMediaUrl } from '@/lib/strapi';
+import ClubsMapSection from '@/components/Maps/ClubsMapSection';
+import LocationMapSection from '@/components/Maps/LocationMapSection';
+import { getStrapiMediaUrl, getClubs } from '@/lib/strapi';
 import type { PageBlock, CarouselSectionBlock } from '@/types/strapi';
 
 interface BlockRendererProps {
     blocks: PageBlock[];
+    locale: string;
 }
 
-export default function BlockRenderer({ blocks }: BlockRendererProps) {
+export default async function BlockRenderer({ blocks, locale }: BlockRendererProps) {
+    // Pre-fetch clubs if any block needs them (avoid fetching per-block)
+    const needsClubs = blocks.some((b) => b.__component === 'sections.clubs-map-section');
+    const clubs = needsClubs ? await getClubs(locale) : [];
+
     return (
         <>
             {blocks.map((block, index) => {
@@ -93,6 +100,28 @@ export default function BlockRenderer({ blocks }: BlockRendererProps) {
                             />
                         );
 
+                    case 'sections.clubs-map-section':
+                        return (
+                            <ClubsMapSection
+                                key={`${block.__component}-${block.id}-${index}`}
+                                heading={block.heading}
+                                clubs={clubs}
+                            />
+                        );
+
+                    case 'sections.location-map-section':
+                        return (
+                            <LocationMapSection
+                                key={`${block.__component}-${block.id}-${index}`}
+                                heading={block.heading}
+                                label={block.label}
+                                address={block.address}
+                                latitude={block.latitude}
+                                longitude={block.longitude}
+                                zoom={block.zoom}
+                            />
+                        );
+
                     default:
                         // Unknown block type — fail gracefully in production
                         if (process.env.NODE_ENV === 'development') {
@@ -104,3 +133,4 @@ export default function BlockRenderer({ blocks }: BlockRendererProps) {
         </>
     );
 }
+

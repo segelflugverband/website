@@ -16,6 +16,18 @@ export interface SectionsCarouselSection extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionsClubsMapSection extends Struct.ComponentSchema {
+  collectionName: 'components_sections_clubs_map_sections';
+  info: {
+    description: 'Interactive map showing all gliding clubs across Switzerland with a sidebar list';
+    displayName: 'Clubs Map Section';
+    icon: 'pinMap';
+  };
+  attributes: {
+    heading: Schema.Attribute.String;
+  };
+}
+
 export interface SectionsCollapsibleTextCollection
   extends Struct.ComponentSchema {
   collectionName: 'components_sections_collapsible_text_collections';
@@ -60,6 +72,31 @@ export interface SectionsIntroSection extends Struct.ComponentSchema {
     image: Schema.Attribute.Media<'images'>;
     imageAlt: Schema.Attribute.String;
     paragraph: Schema.Attribute.Text & Schema.Attribute.Required;
+  };
+}
+
+export interface SectionsLocationMapSection extends Struct.ComponentSchema {
+  collectionName: 'components_sections_location_map_sections';
+  info: {
+    description: 'Map with a single marker for event or venue locations';
+    displayName: 'Location Map Section';
+    icon: 'pinMap';
+  };
+  attributes: {
+    address: Schema.Attribute.Text & Schema.Attribute.Required;
+    heading: Schema.Attribute.String;
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+    latitude: Schema.Attribute.Float & Schema.Attribute.Required;
+    longitude: Schema.Attribute.Float & Schema.Attribute.Required;
+    zoom: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 18;
+          min: 1;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<14>;
   };
 }
 
@@ -212,9 +249,11 @@ declare module '@strapi/strapi' {
   export namespace Public {
     export interface ComponentSchemas {
       'sections.carousel-section': SectionsCarouselSection;
+      'sections.clubs-map-section': SectionsClubsMapSection;
       'sections.collapsible-text-collection': SectionsCollapsibleTextCollection;
       'sections.image-section': SectionsImageSection;
       'sections.intro-section': SectionsIntroSection;
+      'sections.location-map-section': SectionsLocationMapSection;
       'sections.text-section': SectionsTextSection;
       'sections.video-section': SectionsVideoSection;
       'shared.card': SharedCard;
